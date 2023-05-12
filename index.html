@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex-Box</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            font-family: sans-serif;
+        }
+        .Heading{
+            width: 100%;
+        }
+        nav{
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .Navi-box{
+            width: 100%;
+            height: 43px;
+            box-sizing: border-box;
+            border-bottom: 1px solid  rgb(180, 176, 176);
+        }
+        .Navi-box>h4{
+            padding: 0px 5px;
+            font-size: 25px;
+            box-sizing: border-box;
+        }
+        .Navi-box>button{
+            width: 150px;
+            height: 45px;
+            border-radius: 9px;
+            border: none;
+            box-shadow: 15px 11px 25px 1px rgba(0, 0, 0, 0.4);
+            box-sizing: border-box;
+            font-weight: 700;
+            font-size: 15px;
+            position: absolute;
+            right: 30px;
+            top: 20px;
+            transform: scale(1.0);
+            transition: transform 2s;
+            cursor: pointer;
+            transition-timing-function: ease-in-out;
+        }
+        .Navi-box>button:hover{
+            background: rgba(20, 200, 219, 0.4);
+            color: rgb(80, 78, 78);
+            transform: scale(1.1);
+            transition: transform 1s;
+            transition-timing-function: ease-in-out;
+        }
+        .wrapper-flex{
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction:row;
+        }
+        .Navi-box-left{
+            width: 20%;
+            flex: 1;
+        }
+        .MAin-box{
+            width: 60%;
+        }
+        .Navi-box-right{
+            width: 20%;
+            flex: 1;
+        }
+        .Aside-box{
+            height: 78vh;
+            background-color: rgb(244, 246, 248);
+            border-right: 1px solid rgb(211, 203, 203);
+        }
+        .Aside-box>div>h4{
+            padding-left: 20px;
+            font-size: 15px;
+        }
+        .Aside-box>div>p{
+            padding-left: 20px;
+            font-size: 15px;
+        }
+        .color-box{
+            width: 200px;
+            height: 40px;
+            margin-left: 20px;
+            padding: 15px;
+            font-size: 15px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            border: none;
+            box-shadow:1px 1px 54px -11px rgba(0,0,0,0.9);
+            background:#fefefe;
+        }
+        .myrange{
+            -webkit-appearance: none;
+            width: 98%;
+            height: 5px;
+            background: rgb(219, 216, 216);
+            border-radius: 10px;  
+        }
+        
+        .box{
+            width: 250px;
+            height: 250px;
+            background:#fefefe;
+            margin: auto;
+            margin-top: 15%;
+            border-radius: 10px;
+            box-shadow: 1px 1px 54px -11px rgba(0,0,0,0.9);
+        }
+        .Navi-box-right{
+            border-left: 1px solid rgb(211, 203, 203);
+        }
+        #codebox{
+            width: 600px;
+            height: 350px;
+            background-color: rgb(217, 233, 233);
+            position: absolute;
+            top: 25%;
+            left: 30%;
+            border-radius: 30px;
+            box-sizing: border-box;
+            display: none;
+            box-shadow:9px 11px 23px -7px black;
+        }
+        #codebox>h1{
+            padding-left: 20px;
+            font-size: 25px;
+        }
+        #codebox>p{
+            padding-left: 20px;
+            font-size: 20px;
+        }
+        .codegen-box{
+            width: 400px;
+            height: 100px;
+            background-color: rgb(229, 240, 240);
+            margin: auto;
+            border-radius: 30px;
+            box-sizing: border-box;
+            overflow: hidden;
+            box-shadow:9px 11px 23px -7px black;
+        }
+        #codegen{
+            padding-left: 30px;
+            font-size: 15px;
+            word-wrap: break-word;
+        }
+        .btn-box{
+            width: 200px;
+            margin: auto;
+            margin-top: 10px;
+        }
+        .btn{
+            width: 95%;
+            height: 40px;
+            border: none;
+            margin-left: 5px;
+            margin-top: 10px;
+            box-shadow:9px 11px 23px -7px black;
+            font-weight: 700;
+            border-radius: 15px;
+            font-size: 15px;
+        }
+        .btn2{
+            width: 102%;
+            height: 40px;
+            border: none;
+            font-weight: 700;
+            box-shadow:9px 11px 23px -7px black;
+            border-radius: 15px;
+            font-size: 15px;
+        }
+        .Footer-box{
+        width: 100%;
+        height: 80px;
+        background-color:black;
+        color: white;
+        text-align: center;
+        box-sizing: border-box;
+        position: relative;
+        top: -25px;
+        }
+        .Footer-box >h3{
+            padding-top: 10px;
+        }
+        .Footer-box>p{
+            padding-top: -30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="Heading">
+            <nav>
+                <div class="Navi-box">
+                    <h4>Box-Shadows <sub style="font-size: 17px;">By BlogWiki</sub></h4>
+                    <button onclick="code()">Generate Code</button>
+                </div>
+            </nav>
+        </div>
+        <div class="wrapper-flex">
+            <div class="Navi-box-left">
+                <aside>
+                <div class="Aside-box">
+                    <h3 style="text-align: center;">Shadow Styling</h3>
+                    <div>
+                        <h4>Horizontal offset</h4>
+                        <input type="range" min="-100" max="100" value="1" class="myrange" id="myRange">
+                        <p>value: <span id="demo"></span></p>
+                    </div>
+                    <div>
+                        <h4>Vertical offset</h4>
+                        <input type="range" min="-100" max="100" value="1" class="myrange" id="c2">
+                        <p>value: <span id="demo2"></span></p>
+                    </div>
+                    <div>
+                        <h4>Blur radius</h4>
+                        <input type="range" min="0" max="100" value="54" class="myrange" id="c3">
+                        <p>value: <span id="demo3"></span></p>
+                    </div>
+                    <div>
+                        <h4>Spread radius</h4>
+                        <input type="range" min="-100" max="100" value="-11" class="myrange" id="c4">
+                        <p>value: <span id="demo4"></span></p>
+                    </div>
+                    <div>
+                        <h4>Box-shadow Color</h4>
+                        <input type="text" placeholder="rgba(0,0,0,0.9)" id="color-box" class="color-box">
+                        <p style="display: none;" id="color-store">rgba(0,0,0,0.9)</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+            <div  class="MAin-box">
+                <div class="box" id="box"></div>
+            </div>
+            <div class="Navi-box-right">
+                <aside>
+                    <div class="Aside-box">
+                        <h3 style="text-align: center;">Box Styling</h3>
+                        <div>
+                            <h4>Width</h4>
+                            <input type="range" min="1" max="500" value="250" class="myrange" id="c5">
+                            <p>value: <span id="demo5"></span></p>
+                        </div>
+                        <div>
+                            <h4>Height</h4>
+                            <input type="range" min="1" max="500" value="250" class="myrange" id="c6">
+                            <p>value: <span id="demo6"></span></p>
+                        </div>
+                        <div>
+                            <h4>border radius</h4>
+                            <input type="range" min="0" max="125" value="10" class="myrange" id="c7">
+                            <p>value: <span id="demo7"></span></p>
+                        </div>
+                        <div>
+                            <h4>Box Color</h4>
+                            <input type="text" placeholder="#fefefe" class="color-box" id="color-box2">
+                            <p style="display: none;" id="color-store2">#fefefe</p>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <div id="codebox">
+            <h1>Generated Box-Shadow</h1>
+            <p>Copy the code paste it in your Stylesheet/css code</p>
+            <div class="codegen-box"><p id="codegen"></p></div>
+            <div class="btn-box">
+                <button class="btn2" id="copytext" onclick="copytxt()">Copy text</button>
+                <button class="btn" onclick="closes()">Close</button>
+            </div>
+        </div>
+        <footer>
+            <div class="Footer-box">
+                <h3>All rights Reserved | BlogWiki &copy;</h3>
+                <P>2022-2023</P>
+            </div>
+        </footer>
+    </div>
+    <script>
+        console.clear()
+        var slider = document.getElementById("myRange");
+        var slider2 = document.getElementById("c2");
+        var slider3 = document.getElementById("c3");
+        var slider4 = document.getElementById("c4");
+        var slider5 = document.getElementById("c5");
+        var slider6 = document.getElementById("c6");
+        var slider7 = document.getElementById("c7");
+        var output = document.getElementById("demo");
+        var output2 = document.getElementById("demo2");
+        var output3 = document.getElementById("demo3");
+        var output4 = document.getElementById("demo4");
+        var output5 = document.getElementById("demo5");
+        var output6 = document.getElementById("demo6");
+        var output7 = document.getElementById("demo7");
+        ///////////////////box////////////////////////
+        let box=document.getElementById("box")
+        let codegen=document.getElementById("codegen")
+        let codebox=document.getElementById("codebox")
+        let colorbox=document.getElementById("color-box")
+        let colorback=document.getElementById("color-store")
+        let colorbox2=document.getElementById("color-box2")
+        let colorback2=document.getElementById("color-store2")
+        colorbox.onkeyup = function(){
+            colorback.innerHTML=colorbox.value
+            box.style.boxShadow=(output.innerHTML+"px"+" "+ output2.innerHTML+"px"+" "+output3.innerHTML+"px"+" "+output4.innerHTML+"px"+" "+colorback.innerText)
+        }
+        colorbox2.onkeyup = function(){
+            colorback2.innerHTML=colorbox2.value
+            box.style.background=colorback2.innerHTML
+        }
+        output.innerHTML=slider.value;
+        output2.innerHTML=slider2.value;
+        output3.innerHTML=slider3.value;
+        output4.innerHTML=slider4.value;
+        output5.innerHTML=slider5.value;
+        output6.innerHTML=slider6.value;
+        output7.innerHTML=slider7.value;
+        slider.oninput=function(){
+            output.innerHTML=this.value
+            box.style.boxShadow=(output.innerHTML+"px"+" "+ output2.innerHTML+"px"+" "+output3.innerHTML+"px"+" "+output4.innerHTML+"px"+" "+colorback.innerText)
+        }
+        slider2.oninput=function(){
+            output2.innerHTML=this.value
+            box.style.boxShadow=(output.innerHTML+"px"+" "+ output2.innerHTML+"px"+" "+output3.innerHTML+"px"+" "+output4.innerHTML+"px"+" "+colorback.innerText)
+        }
+        slider3.oninput=function(){
+            output3.innerHTML=this.value
+            box.style.boxShadow=(output.innerHTML+"px"+" "+ output2.innerHTML+"px"+" "+output3.innerHTML+"px"+" "+output4.innerHTML+"px"+" "+colorback.innerText)
+        }
+        slider4.oninput=function(){
+            output4.innerHTML=this.value
+            box.style.boxShadow=(output.innerHTML+"px"+" "+ output2.innerHTML+"px"+" "+output3.innerHTML+"px"+" "+output4.innerHTML+"px"+" "+colorback.innerText)
+        }
+        slider5.oninput=function(){
+            output5.innerHTML=this.value
+            box.style.width=output5.innerHTML+"px"
+        }
+        slider6.oninput=function(){
+            output6.innerHTML=this.value
+            box.style.height=output6.innerHTML+"px"
+        }
+        slider7.oninput=function(){
+            output7.innerHTML=this.value
+            box.style.borderRadius=output7.innerHTML+"px"
+        }
+        function code(){
+            codegen.innerHTML="width:"+output5.innerHTML+"px"+";"+" "+"height:"+output6.innerHTML+"px"+";"+"<br>"+"border-radius:"+output6.innerHTML+"px"+";"+" "+"background:"+colorback2.innerHTML+";"+"<br>"+"box-shadow:"+(output.innerHTML+"px"+" "+ output2.innerHTML+"px"+" "+output3.innerHTML+"px"+" "+output4.innerHTML+"px"+" "+colorback.innerHTML+";");
+            codebox.style.display="block"
+        }
+        function closes(){
+            codebox.style.display="none"
+        }
+        let copytext=document.getElementById("copytext")
+        function copytxt(){
+        navigator.clipboard.writeText(codegen.innerHTML);
+        copytext.innerHTML="Copied"
+        copytext.style.color="white"
+        copytext.style.backgroundColor="black"
+        }
+    </script>
+</body>
+</html>
